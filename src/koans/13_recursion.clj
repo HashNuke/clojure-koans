@@ -18,10 +18,12 @@
               (recur (rest coll) (cons (first coll) reversed)))))
 
 (defn factorial [n]
-  (if (= n 0)
-    1
-    (* n (factorial (dec n)))
-    ))
+  (loop [n n 
+         res 1]
+    (if (= 0 n)
+      res
+      (recur (dec n) (* n res)))))
+
 
 (meditations
   "Recursion ends with a base case"
